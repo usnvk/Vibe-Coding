@@ -1,0 +1,22 @@
+{
+  "name": "kanban-task-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Streamlined task management application with Kanban-style organization, PostgreSQL relational data, and Workload Balancing burnout detection",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n \"server,client\" -c \"blue,magenta\" \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix server run build && npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "test": "npm --prefix server test",
+    "seed": "npm --prefix server run seed",
+    "db:migrate": "npm --prefix server run db:migrate"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
